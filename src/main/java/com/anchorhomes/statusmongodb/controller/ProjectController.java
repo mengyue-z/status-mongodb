@@ -20,8 +20,8 @@ public class ProjectController {
     }
 
     @GetMapping
-    public List<Project> getProjectByAddress(@RequestParam("address") String address){
-        return projectService.getProjectByAddress(address);
+    public List<Project> getAllProjects(){
+        return projectService.getAllProjects();
     }
 
 }

@@ -16,4 +16,6 @@ public class Project {
     private Long priority;
     private String address;
     private SelectionStatus selectionStatus;
+    private BidStatus bidStatus;
+    private PurchasingStatus purchasingStatus;
 }

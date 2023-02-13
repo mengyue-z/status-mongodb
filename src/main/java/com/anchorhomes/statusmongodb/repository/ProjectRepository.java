@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface ProjectRepository extends MongoRepository<Project, String> {
     List<Project> findByAddress(String address);
+    List<Project> findAll();
 }

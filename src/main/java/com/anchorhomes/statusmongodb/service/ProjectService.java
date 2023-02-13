@@ -9,5 +9,5 @@ public interface ProjectService {
 
     String save(Project project);
 
-    List<Project> getProjectByAddress(String address);
+    List<Project> getAllProjects();
 }
