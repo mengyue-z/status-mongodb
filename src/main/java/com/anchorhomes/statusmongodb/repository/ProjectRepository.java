@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ProjectRepository extends MongoRepository<Project, String> {
-    List<Project> findByAddress(String address);
+public interface ProjectRepository extends MongoRepository<Project, Long> {
+    Project findByAddress(String address);
+    Optional<Project> findById(Long id);
+
+
     List<Project> findAll();
+    List<Project> findAllByPriority();
 }

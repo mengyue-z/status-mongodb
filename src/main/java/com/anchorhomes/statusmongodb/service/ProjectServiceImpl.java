@@ -14,13 +14,38 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
     @Override
-    public String save(Project project) {
-        return projectRepository.save(project).getId();
+    public List<Project> getAllProjects() {
+        return projectRepository.findAll();
     }
 
     @Override
-    public List<Project> getAllProjects() {
-        return projectRepository.findAll();
+    public Project save(Project project) {
+        return projectRepository.save(project);
+    }
+
+    @Override
+    public Project findByAddress(String address) {
+        return projectRepository.findByAddress(address);
+    }
+
+    @Override
+    public Optional<Project> findByProjectId(Long id) {
+        return projectRepository.findById(id);
+    }
+
+    @Override
+    public Project updateProject(Project project) {
+        return projectRepository.save(project);
+    }
+
+    @Override
+    public void deleteProjectById(Long id) {
+        projectRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Project> findAllByPriority() {
+        return projectRepository.findAllByPriority();
     }
 }
 

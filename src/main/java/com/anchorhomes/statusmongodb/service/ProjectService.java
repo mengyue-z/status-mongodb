@@ -7,7 +7,12 @@ import java.util.Optional;
 
 public interface ProjectService {
 
-    String save(Project project);
-
+    Project save(Project project);
+    Project findByAddress(String address);
+    Project updateProject(Project project);
+    Optional<Project> findByProjectId(Long id);
+    void deleteProjectById(Long id);
     List<Project> getAllProjects();
+    List<Project> findAllByPriority();
+
 }

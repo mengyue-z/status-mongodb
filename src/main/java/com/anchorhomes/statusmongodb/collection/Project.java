@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
@@ -11,8 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "project")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Project {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "users_sequence";
+
     @Id
-    private String id;
+    private Long id;
     private Long priority;
     private String address;
     private SelectionStatus selectionStatus;
