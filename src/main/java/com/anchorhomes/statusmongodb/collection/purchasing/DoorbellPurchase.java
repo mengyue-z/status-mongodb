@@ -9,5 +9,5 @@ import lombok.Data;
 public class
 DoorbellPurchase {
     private Status status;
-    private String poc;
+    private String poc = "not assigned";
 }

@@ -8,5 +8,5 @@ import lombok.Data;
 @Builder
 public class FloorJoistBid {
     private Status status;
-    private String poc;
+    private String poc= "not assigned";
 }

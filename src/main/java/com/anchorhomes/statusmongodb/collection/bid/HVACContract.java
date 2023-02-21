@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class HAVCContract {
+public class HVACContract {
     private Status status;
-    private String poc;
+    private String poc= "not assigned";
 }

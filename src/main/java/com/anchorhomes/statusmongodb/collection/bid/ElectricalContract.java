@@ -9,5 +9,5 @@ import lombok.Data;
 @Builder
 public class ElectricalContract {
     private Status status;
-    private String poc;
+    private String poc= "not assigned";
 }

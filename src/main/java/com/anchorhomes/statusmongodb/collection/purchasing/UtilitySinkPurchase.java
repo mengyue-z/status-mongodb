@@ -8,5 +8,5 @@ import lombok.Data;
 @Builder
 public class UtilitySinkPurchase {
     private Status status;
-    private String poc;
+    private String poc= "not assigned";
 }

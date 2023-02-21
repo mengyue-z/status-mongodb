@@ -1,7 +1,6 @@
 package com.anchorhomes.statusmongodb.collection;
 
 import com.anchorhomes.statusmongodb.collection.bid.*;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -17,7 +16,7 @@ public class BidStatus {
     private RoofTrussBid roofTrussBid;
     private FloorJoistBid floorJoistBid;
     private StairBid stairBid;
-    private HAVCContract havcContract;
+    private HVACContract hvacContract;
     private ElectricalContract electricalContract;
     private LowVoltageContract lowVoltageContract;
     private PlumbingContract plumbingContract;
@@ -28,7 +27,7 @@ public class BidStatus {
     public BidStatus() {
     }
 
-    public BidStatus(UtilityDisconnection utilityDisconnection, SiteWorkContract siteWorkContract, ConcreteBid concreteBid, WindowBid windowBid, ExtDoorBid extDoorBid, RoofTrussBid roofTrussBid, FloorJoistBid floorJoistBid, StairBid stairBid, HAVCContract havcContract, ElectricalContract electricalContract, LowVoltageContract lowVoltageContract, PlumbingContract plumbingContract, PestControlContract pestControlContract, SprinklerContract sprinklerContract, UtilityReconnect utilityReconnect) {
+    public BidStatus(UtilityDisconnection utilityDisconnection, SiteWorkContract siteWorkContract, ConcreteBid concreteBid, WindowBid windowBid, ExtDoorBid extDoorBid, RoofTrussBid roofTrussBid, FloorJoistBid floorJoistBid, StairBid stairBid, HVACContract hvacContract, ElectricalContract electricalContract, LowVoltageContract lowVoltageContract, PlumbingContract plumbingContract, PestControlContract pestControlContract, SprinklerContract sprinklerContract, UtilityReconnect utilityReconnect) {
         this.utilityDisconnection = utilityDisconnection;
         this.siteWorkContract = siteWorkContract;
         this.concreteBid = concreteBid;
@@ -37,7 +36,7 @@ public class BidStatus {
         this.roofTrussBid = roofTrussBid;
         this.floorJoistBid = floorJoistBid;
         this.stairBid = stairBid;
-        this.havcContract = havcContract;
+        this.hvacContract = hvacContract;
         this.electricalContract = electricalContract;
         this.lowVoltageContract = lowVoltageContract;
         this.plumbingContract = plumbingContract;
