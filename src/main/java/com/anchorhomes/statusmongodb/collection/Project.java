@@ -24,4 +24,5 @@ public class Project {
     private SelectionStatus selectionStatus;
     private BidStatus bidStatus;
     private PurchasingStatus purchasingStatus;
+
 }

@@ -9,8 +9,8 @@ import lombok.Data;
 @Builder
 public class Status {
     private String statusDetail = "in process";
-    private String date = "-";
-    private String notes =" ";
+    private String date;
+    private String notes;
 
     public Status() {
     }

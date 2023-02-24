@@ -1,12 +1,16 @@
 package com.anchorhomes.statusmongodb.service;
 
+import com.anchorhomes.statusmongodb.collection.BidStatus;
 import com.anchorhomes.statusmongodb.collection.Project;
+import com.anchorhomes.statusmongodb.collection.PurchasingStatus;
+import com.anchorhomes.statusmongodb.collection.SelectionStatus;
 import com.anchorhomes.statusmongodb.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.util.ReflectionUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -41,6 +45,25 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public void deleteProjectById(Long id) {
         projectRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateBidStatus(Long id, BidStatus updatedBidStatus) {
+        Project existingProject = projectRepository.findById(id).get();
+        existingProject.setBidStatus(updatedBidStatus);
+        updateProject(existingProject);
+    }
+    @Override
+    public void updateSelectionStatus(Long id, SelectionStatus updatedSelectionStatus) {
+        Project existingProject = projectRepository.findById(id).get();
+        existingProject.setSelectionStatus(updatedSelectionStatus);
+        updateProject(existingProject);
+    }
+    @Override
+    public void updatePurchasingStatus(Long id, PurchasingStatus updatedPurchasingStatus) {
+        Project existingProject = projectRepository.findById(id).get();
+        existingProject.setPurchasingStatus(updatedPurchasingStatus);
+        updateProject(existingProject);
     }
 
     @Override
