@@ -4,6 +4,7 @@ import com.anchorhomes.statusmongodb.collection.BidStatus;
 import com.anchorhomes.statusmongodb.collection.Project;
 import com.anchorhomes.statusmongodb.collection.PurchasingStatus;
 import com.anchorhomes.statusmongodb.collection.SelectionStatus;
+import com.anchorhomes.statusmongodb.collection.bid.UtilityDisconnection;
 import com.anchorhomes.statusmongodb.service.ProjectService;
 import com.anchorhomes.statusmongodb.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,11 @@ public class ProjectController {
     @PutMapping(value="/bid-status/{id}")
     public void updateBidStatus(@PathVariable("id") Long id,@RequestBody BidStatus updatedBidStatus){
         projectService.updateBidStatus(id,updatedBidStatus);
+    };
+    @PatchMapping(value="/bid-status/{id}/utility-disconnection")
+    public void updateUtilityDisconnection(@PathVariable("id") Long id,@RequestBody UtilityDisconnection utilityDisconnection){
+        System.out.println(utilityDisconnection);
+        projectService.updateUtilityDisconnection(id,utilityDisconnection);
     };
 
     @PutMapping(value="/selection-status/{id}")

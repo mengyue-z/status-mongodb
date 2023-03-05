@@ -11,8 +11,6 @@ import java.util.Optional;
 public interface ProjectRepository extends MongoRepository<Project, Long> {
     Project findByAddress(String address);
     Optional<Project> findById(Long id);
-
-
     List<Project> findAll();
     List<Project> findAllByPriority();
 }
