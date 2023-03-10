@@ -4,7 +4,12 @@ import com.anchorhomes.statusmongodb.collection.BidStatus;
 import com.anchorhomes.statusmongodb.collection.Project;
 import com.anchorhomes.statusmongodb.collection.PurchasingStatus;
 import com.anchorhomes.statusmongodb.collection.SelectionStatus;
+import com.anchorhomes.statusmongodb.collection.bid.ConcreteBid;
 import com.anchorhomes.statusmongodb.collection.bid.UtilityDisconnection;
+import com.anchorhomes.statusmongodb.collection.purchasing.AppliancePurchase;
+import com.anchorhomes.statusmongodb.collection.purchasing.CabinetPurchase;
+import com.anchorhomes.statusmongodb.collection.selection.ApplianceSelection;
+import com.anchorhomes.statusmongodb.collection.selection.CabinetSelection;
 import com.anchorhomes.statusmongodb.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -91,11 +96,52 @@ public class ProjectServiceImpl implements ProjectService {
         updateBidStatus(id, existingBidStatus);
     }
 
+        @Override
+    public void updateConcreteBid(Long id, ConcreteBid concreteBid) {
+        Project existingProject = projectRepository.findById(id).get();
+        BidStatus existingBidStatus = existingProject.getBidStatus();
+        existingBidStatus.setConcreteBid(concreteBid);
+        updateBidStatus(id, existingBidStatus);
+    }
+
+
     @Override
     public void updateSelectionStatus(Long id, SelectionStatus updatedSelectionStatus) {
         Project existingProject = projectRepository.findById(id).get();
         existingProject.setSelectionStatus(updatedSelectionStatus);
         updateProject(existingProject);
+    }
+
+    @Override
+    public void updateApplianceSelection(Long id, ApplianceSelection applianceSelection) {
+        Project existingProject = projectRepository.findById(id).get();
+        SelectionStatus existingSelectionStatus = existingProject.getSelectionStatus();
+        existingSelectionStatus.setApplianceSelection(applianceSelection);
+        updateSelectionStatus(id, existingSelectionStatus);
+    }
+    @Override
+    public void updateCabinetSelection(Long id, CabinetSelection cabinetSelection) {
+        Project existingProject = projectRepository.findById(id).get();
+        SelectionStatus existingSelectionStatus = existingProject.getSelectionStatus();
+        existingSelectionStatus.setCabinetSelection(cabinetSelection);
+        updateSelectionStatus(id, existingSelectionStatus);
+    }
+
+
+    @Override
+    public void updateAppliancePurchase(Long id, AppliancePurchase appliancePurchase) {
+        Project existingProject = projectRepository.findById(id).get();
+        PurchasingStatus existingPurchasingStatus = existingProject.getPurchasingStatus();
+        existingPurchasingStatus.setAppliancePurchase(appliancePurchase);
+        updatePurchasingStatus(id, existingPurchasingStatus);
+    }
+
+    @Override
+    public void updateCabinetPurchase(Long id, CabinetPurchase cabinetPurchase) {
+        Project existingProject = projectRepository.findById(id).get();
+        PurchasingStatus existingPurchasingStatus = existingProject.getPurchasingStatus();
+        existingPurchasingStatus.setCabinetPurchase(cabinetPurchase);
+        updatePurchasingStatus(id, existingPurchasingStatus);
     }
     @Override
     public void updatePurchasingStatus(Long id, PurchasingStatus updatedPurchasingStatus) {
